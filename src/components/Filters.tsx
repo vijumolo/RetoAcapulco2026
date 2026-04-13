@@ -8,8 +8,6 @@ interface FiltersProps {
   setFiltroNombre: (v: string) => void;
   filtroCiudad: string;
   setFiltroCiudad: (v: string) => void;
-  filtroPais: string;
-  setFiltroPais: (v: string) => void;
   filtroCategoria: string;
   setFiltroCategoria: (v: string) => void;
   filtroGenero: string;
@@ -20,7 +18,6 @@ export const Filters: FC<FiltersProps> = ({
   filtroPlaca, setFiltroPlaca,
   filtroNombre, setFiltroNombre,
   filtroCiudad, setFiltroCiudad,
-  filtroPais, setFiltroPais,
   filtroCategoria, setFiltroCategoria,
   filtroGenero, setFiltroGenero
 }) => {
@@ -51,15 +48,6 @@ export const Filters: FC<FiltersProps> = ({
           placeholder="Ej. Bucaramanga"
           value={filtroCiudad}
           onChange={(e) => setFiltroCiudad(e.target.value)}
-        />
-      </div>
-      <div className="input-group">
-        <label>País</label>
-        <input 
-          type="text" 
-          placeholder="Ej. Colombia"
-          value={filtroPais}
-          onChange={(e) => setFiltroPais(e.target.value)}
         />
       </div>
       <div className="input-group">

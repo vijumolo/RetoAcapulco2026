@@ -11,6 +11,8 @@ function App() {
   const [nombre, setNombre] = useState('');
   const [ciudad, setCiudad] = useState('');
   const [pais, setPais] = useState('');
+  const [categoria, setCategoria] = useState('');
+  const [genero, setGenero] = useState('');
   const [page, setPage] = useState(1);
 
   // Type assertions
@@ -23,15 +25,18 @@ function App() {
       const matchCiudad = (athlete.ciudad || '').toLowerCase().includes(ciudad.toLowerCase());
       // Since 'pais' currently defaults to N/A if it wasn't textual, we check if filtering is needed.
       const matchPais = (athlete.pais || '').toLowerCase().includes(pais.toLowerCase());
+      
+      const matchCategoria = categoria === '' || athlete.categoria === categoria;
+      const matchGenero = genero === '' || athlete.genero === genero;
 
-      return matchPlaca && matchNombre && matchCiudad && matchPais;
+      return matchPlaca && matchNombre && matchCiudad && matchPais && matchCategoria && matchGenero;
     });
-  }, [data, placa, nombre, ciudad, pais]);
+  }, [data, placa, nombre, ciudad, pais, categoria, genero]);
 
   // Reset page to 1 when filters change
   useMemo(() => {
     setPage(1);
-  }, [placa, nombre, ciudad, pais]);
+  }, [placa, nombre, ciudad, pais, categoria, genero]);
 
   const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
   const currentData = filteredData.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
@@ -49,6 +54,8 @@ function App() {
         filtroNombre={nombre} setFiltroNombre={setNombre}
         filtroCiudad={ciudad} setFiltroCiudad={setCiudad}
         filtroPais={pais} setFiltroPais={setPais}
+        filtroCategoria={categoria} setFiltroCategoria={setCategoria}
+        filtroGenero={genero} setFiltroGenero={setGenero}
       />
 
       <div className="results-info">

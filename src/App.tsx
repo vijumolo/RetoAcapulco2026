@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import resultsData from './data/results.json';
 import type { AthleteResult } from './types';
 import { AthleteCard } from './components/AthleteCard';

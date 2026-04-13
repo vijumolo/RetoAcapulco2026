@@ -1,11 +1,11 @@
-import React from 'react';
+import type { FC } from 'react';
 import type { AthleteResult } from '../types';
 
 interface AthleteCardProps {
   athlete: AthleteResult;
 }
 
-export const AthleteCard: React.FC<AthleteCardProps> = ({ athlete }) => {
+export const AthleteCard: FC<AthleteCardProps> = ({ athlete }) => {
   return (
     <div className="athlete-card glass">
       <div className="card-header">

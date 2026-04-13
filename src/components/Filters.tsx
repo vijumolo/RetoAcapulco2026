@@ -1,4 +1,5 @@
-import React from 'react';
+
+import type { FC } from 'react';
 
 interface FiltersProps {
   filtroPlaca: string;
@@ -11,7 +12,7 @@ interface FiltersProps {
   setFiltroPais: (v: string) => void;
 }
 
-export const Filters: React.FC<FiltersProps> = ({
+export const Filters: FC<FiltersProps> = ({
   filtroPlaca, setFiltroPlaca,
   filtroNombre, setFiltroNombre,
   filtroCiudad, setFiltroCiudad,
